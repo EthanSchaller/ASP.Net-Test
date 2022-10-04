@@ -1,0 +1,252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Dev_VaultModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Project">
+    <Key>
+      <PropertyRef Name="ProjectID" />
+    </Key>
+    <Property Name="ProjectID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="TimeVault_ProjectID" Type="int" />
+    <Property Name="PrimaryDeveloper" Type="int" />
+    <Property Name="SecondaryDeveloper" Type="int" />
+    <Property Name="VisualStudioVersion" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SourceCodeLocation" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="DEV_DBLocation" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="DEV_SiteLocation" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="DEV_LoginInfo" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="PROD_CodeLocation" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="PROD_DBLocation" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="PROD_SiteLocation" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="PROD_LoginInfo" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="Notes" Type="varchar(max)" Nullable="false" />
+    <Property Name="MapNotes" Type="varchar(max)" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="512" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="512" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProjectAttachment">
+    <Key>
+      <PropertyRef Name="ProjectAttachmentID" />
+    </Key>
+    <Property Name="ProjectAttachmentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectID" Type="int" />
+    <Property Name="Name" Type="varchar" MaxLength="150" />
+    <Property Name="Description" Type="varchar(max)" />
+    <Property Name="FileData" Type="varbinary(max)" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="512" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="512" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="512" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="512" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipsTricks">
+    <Key>
+      <PropertyRef Name="TipTrickID" />
+    </Key>
+    <Property Name="TipTrickID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="256" Nullable="false" />
+    <Property Name="TipTrickTypeID" Type="int" Nullable="false" />
+    <Property Name="Description" Type="varchar(max)" Nullable="false" />
+    <Property Name="Notes" Type="varchar(max)" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="512" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="512" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipsTricksAttachments">
+    <Key>
+      <PropertyRef Name="TipTrickAttachmentID" />
+    </Key>
+    <Property Name="TipTrickAttachmentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TipTrickID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="256" Nullable="false" />
+    <Property Name="Description" Type="varchar(max)" Nullable="false" />
+    <Property Name="FileData" Type="varbinary(max)" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="512" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="512" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipTrickType">
+    <Key>
+      <PropertyRef Name="TipTrickTypeID" />
+    </Key>
+    <Property Name="TipTrickTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="512" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="512" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleID" Type="int" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="512" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="1024" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="512" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="512" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserPasswordRecovery">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="Hash" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="HasBeenUpdated" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Project_Attachments_Project">
+    <End Role="Project" Type="Self.Project" Multiplicity="0..1" />
+    <End Role="ProjectAttachment" Type="Self.ProjectAttachment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Project">
+        <PropertyRef Name="ProjectID" />
+      </Principal>
+      <Dependent Role="ProjectAttachment">
+        <PropertyRef Name="ProjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Project_User">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Project" Type="Self.Project" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Project">
+        <PropertyRef Name="PrimaryDeveloper" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Project_User1">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Project" Type="Self.Project" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Project">
+        <PropertyRef Name="SecondaryDeveloper" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TipsTricks_TipTrickType">
+    <End Role="TipTrickType" Type="Self.TipTrickType" Multiplicity="1" />
+    <End Role="TipsTricks" Type="Self.TipsTricks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipTrickType">
+        <PropertyRef Name="TipTrickTypeID" />
+      </Principal>
+      <Dependent Role="TipsTricks">
+        <PropertyRef Name="TipTrickTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TipsTricksAttachments_TipsTricks">
+    <End Role="TipsTricks" Type="Self.TipsTricks" Multiplicity="1" />
+    <End Role="TipsTricksAttachments" Type="Self.TipsTricksAttachments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipsTricks">
+        <PropertyRef Name="TipTrickID" />
+      </Principal>
+      <Dependent Role="TipsTricksAttachments">
+        <PropertyRef Name="TipTrickID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Role">
+    <End Role="Role" Type="Self.Role" Multiplicity="1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserPasswordRecovery_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="UserPasswordRecovery" Type="Self.UserPasswordRecovery" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UserPasswordRecovery">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Dev_VaultModelStoreContainer">
+    <EntitySet Name="Project" EntityType="Self.Project" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProjectAttachment" EntityType="Self.ProjectAttachment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipsTricks" EntityType="Self.TipsTricks" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipsTricksAttachments" EntityType="Self.TipsTricksAttachments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipTrickType" EntityType="Self.TipTrickType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserPasswordRecovery" EntityType="Self.UserPasswordRecovery" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Project_Attachments_Project" Association="Self.FK_Project_Attachments_Project">
+      <End Role="Project" EntitySet="Project" />
+      <End Role="ProjectAttachment" EntitySet="ProjectAttachment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Project_User" Association="Self.FK_Project_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Project" EntitySet="Project" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Project_User1" Association="Self.FK_Project_User1">
+      <End Role="User" EntitySet="User" />
+      <End Role="Project" EntitySet="Project" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TipsTricks_TipTrickType" Association="Self.FK_TipsTricks_TipTrickType">
+      <End Role="TipTrickType" EntitySet="TipTrickType" />
+      <End Role="TipsTricks" EntitySet="TipsTricks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TipsTricksAttachments_TipsTricks" Association="Self.FK_TipsTricksAttachments_TipsTricks">
+      <End Role="TipsTricks" EntitySet="TipsTricks" />
+      <End Role="TipsTricksAttachments" EntitySet="TipsTricksAttachments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserPasswordRecovery_User" Association="Self.FK_UserPasswordRecovery_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="UserPasswordRecovery" EntitySet="UserPasswordRecovery" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

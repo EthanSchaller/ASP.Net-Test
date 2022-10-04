@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TimeVaultModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="ClientID" />
+    </Key>
+    <Property Name="ClientID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClientCode" Type="nvarchar" MaxLength="16" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="1024" />
+    <Property Name="StartDate" Type="datetime" Nullable="false" />
+    <Property Name="BillingEmailAddress" Type="nvarchar" MaxLength="512" Nullable="false" />
+    <Property Name="MailingAddressID" Type="int" Nullable="false" />
+    <Property Name="BillingAddressID" Type="int" Nullable="false" />
+    <Property Name="Comments" Type="nvarchar" MaxLength="1024" />
+    <Property Name="CurrencyID" Type="int" Nullable="false" />
+    <Property Name="TaxScheduleID" Type="int" Nullable="false" />
+    <Property Name="BusinessNumber" Type="nvarchar" MaxLength="32" />
+    <Property Name="TaxExemptionCode" Type="nvarchar" MaxLength="32" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="512" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="512" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ClientContact">
+    <Key>
+      <PropertyRef Name="ClientContactID" />
+    </Key>
+    <Property Name="ClientContactID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClientID" Type="int" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="64" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="64" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="512" />
+    <Property Name="Title" Type="nvarchar" MaxLength="128" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="64" />
+    <Property Name="Phone2" Type="nvarchar" MaxLength="64" />
+    <Property Name="Fax" Type="nvarchar" MaxLength="64" />
+    <Property Name="MailingAddressID" Type="int" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="512" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="512" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Project">
+    <Key>
+      <PropertyRef Name="ProjectID" />
+    </Key>
+    <Property Name="ProjectID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="1024" Nullable="false" />
+    <Property Name="ClientID" Type="int" Nullable="false" />
+    <Property Name="ClientContactID" Type="int" Nullable="false" />
+    <Property Name="ProposalNumber" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ShortCode" Type="nvarchar" MaxLength="16" Nullable="false" />
+    <Property Name="JobAddress" Type="int" />
+    <Property Name="StartDate" Type="datetime" />
+    <Property Name="EndDate" Type="datetime" />
+    <Property Name="ProjectManagerID" Type="int" Nullable="false" />
+    <Property Name="ProjectStatusID" Type="int" Nullable="false" />
+    <Property Name="CompanyID" Type="int" Nullable="false" />
+    <Property Name="DepartmentID" Type="int" Nullable="false" />
+    <Property Name="OfficeID" Type="int" Nullable="false" />
+    <Property Name="TaxScheduleID" Type="int" />
+    <Property Name="ClientPONumber" Type="nvarchar" MaxLength="32" />
+    <Property Name="CurrencyID" Type="int" />
+    <Property Name="ProjectTermID" Type="int" />
+    <Property Name="InvoiceTermID" Type="int" />
+    <Property Name="IsAdministrative" Type="bit" Nullable="false" />
+    <Property Name="IsFixed" Type="bit" Nullable="false" />
+    <Property Name="IsBillable" Type="bit" Nullable="false" />
+    <Property Name="ShowTimeEntries" Type="bit" Nullable="false" />
+    <Property Name="ShowHardwareServiceEntries" Type="bit" Nullable="false" />
+    <Property Name="ShowTotalHourSummary" Type="bit" Nullable="false" />
+    <Property Name="ShowPhaseDescription" Type="bit" Nullable="false" />
+    <Property Name="ShowInvoiceMemo" Type="bit" Nullable="false" />
+    <Property Name="EmailInvoice" Type="bit" Nullable="false" />
+    <Property Name="MailInvoice" Type="bit" Nullable="false" />
+    <Property Name="MinimumAmount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="FixedAmount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="IsRecurring" Type="bit" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="512" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="512" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+    <Property Name="RecurDays" Type="int" Nullable="false" />
+    <Property Name="RecurMonths" Type="int" Nullable="false" />
+    <Property Name="RecurYears" Type="int" Nullable="false" />
+    <Property Name="UseWorkItemRates" Type="bit" Nullable="false" />
+    <Property Name="UsePrimeRateSchedule" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserProfileID" Type="int" />
+    <Property Name="Email" Type="nvarchar" MaxLength="512" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="1024" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="64" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="64" Nullable="false" />
+    <Property Name="RoleID" Type="int" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="512" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="512" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+    <Property Name="LastMOTDViewed" Type="int" />
+  </EntityType>
+  <Association Name="FK_ClientContact_Client">
+    <End Role="Client" Type="Self.Client" Multiplicity="1" />
+    <End Role="ClientContact" Type="Self.ClientContact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="ClientID" />
+      </Principal>
+      <Dependent Role="ClientContact">
+        <PropertyRef Name="ClientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Project_Client">
+    <End Role="Client" Type="Self.Client" Multiplicity="1" />
+    <End Role="Project" Type="Self.Project" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="ClientID" />
+      </Principal>
+      <Dependent Role="Project">
+        <PropertyRef Name="ClientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Project_ClientContact">
+    <End Role="ClientContact" Type="Self.ClientContact" Multiplicity="1" />
+    <End Role="Project" Type="Self.Project" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ClientContact">
+        <PropertyRef Name="ClientContactID" />
+      </Principal>
+      <Dependent Role="Project">
+        <PropertyRef Name="ClientContactID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Project_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Project" Type="Self.Project" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Project">
+        <PropertyRef Name="ProjectManagerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TimeVaultModelStoreContainer">
+    <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ClientContact" EntityType="Self.ClientContact" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Project" EntityType="Self.Project" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_ClientContact_Client" Association="Self.FK_ClientContact_Client">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="ClientContact" EntitySet="ClientContact" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Project_Client" Association="Self.FK_Project_Client">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="Project" EntitySet="Project" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Project_ClientContact" Association="Self.FK_Project_ClientContact">
+      <End Role="ClientContact" EntitySet="ClientContact" />
+      <End Role="Project" EntitySet="Project" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Project_User" Association="Self.FK_Project_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Project" EntitySet="Project" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,115 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.Master.cs" Inherits="TestApp.Site" %>
+
+<!DOCTYPE html>
+
+<html lang="en" class="h-100">
+    <head runat="server">
+         <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <title>ASP.NET Test App</title>
+
+        <%--bootstrap css--%>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    
+        <%--font awesome css--%>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    
+        <%--chosen css--%>
+        <link href="~/Assets/css/chosen.min.css" rel="stylesheet" />
+
+        <%--custom css--%>
+        <link href="~/Assets/css/Site.css" rel="stylesheet" />
+
+        <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+    </head>
+    <body class="h-100">
+        <form id="form1" runat="server" class="h-100">
+            <nav id="topNavbar" class="navbar navbar-light bg-light navbar-expand-lg">
+                <asp:HyperLink ID="hlLogo" CssClass="navbar-brand" runat="server" NavigateUrl="~/Dashboard.aspx">
+                    <i class="fas fa-code"></i>
+                    ASP.NET Test App
+                </asp:HyperLink>
+                <ul class="navbar-nav mr-auto">
+                </ul>
+                <div class="form-inline my-2 my-lg-0">
+                    <ul id="userDropdown" class="navbar-nav" runat="server">
+                        <li class="nav-product dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-user" ></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <asp:HyperLink class="list-group-item list-group-item-action bg-light" ID="hlUserProfile" runat="server" NavigateUrl="~/User/UserEdit.aspx"><li><i class="fas fa-user fa-fw"></i> User Profile</li></asp:HyperLink>
+                                <asp:HyperLink class="list-group-item list-group-item-action bg-light" ID="hlViewCart" runat="server" NavigateUrl="~/Cart/CartPage.aspx"><li><i class="fas fa-shopping-cart"></i> Cart</li></asp:HyperLink>
+                                <asp:LinkButton class="list-group-item list-group-item-action bg-light" ID="lnkLogout" runat="server" onclick="lnkLogout_Click" CausesValidation="false"><li><i class="fas fa-sign-out-alt fa-fw"></i> Logout</li></asp:LinkButton>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div id="contentContainer" class="container-fluid">
+                <div id="contentRow" class="row">
+                    <div id="leftSidebar" class="col-2 bg-light">
+                        <ul id="sideMenu" class="list-group" runat="server">
+                            <asp:HyperLink class="list-group-item list-group-item-action bg-light" ID="hlDashboard" runat="server" NavigateUrl="~/Dashboard.aspx"><i class="fas fa-tachometer-alt fa-fw"></i> Dashboard</asp:HyperLink>
+                            <asp:HyperLink class="list-group-item list-group-item-action bg-light" ID="hlStorefront" runat="server" NavigateUrl="~/Storefront/StorefrontPage.aspx"><i class="fas fa-store"></i> Store</asp:HyperLink>
+                            <asp:HyperLink class="list-group-item list-group-item-action bg-light" ID="hlOrderList" runat="server" NavigateUrl="~/Order/OrderList.aspx"><i class="fas fa-list"></i> Orders</asp:HyperLink>
+                            <asp:HyperLink class="list-group-item list-group-item-action bg-light" ID="hlUserList" runat="server" NavigateUrl="~/User/UserList.aspx"><i class="far fa-address-book"></i> Users</asp:HyperLink>
+                            <asp:HyperLink class="list-group-item list-group-item-action bg-light" ID="hlProdList" runat="server" NavigateUrl="~/Product/ProdList.aspx"><i class="fas fa-archive"></i> Products</asp:HyperLink>
+                        </ul>
+                    </div>
+                    <div class="col-10">                    
+                        <br />
+                        <div id="divAlertSuccess" runat="server" class="alert alert-success alert-dismissible" role="alert" visible="false">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <asp:Label ID="lblAlertSuccess" runat="server" Text="" />
+                        </div>
+
+                        <div id="divAlertInfo" runat="server" class="alert alert-info alert-dismissible" role="alert" visible="false">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <asp:Label ID="lblAlertInfo" runat="server" Text="" />
+                        </div>
+
+                        <div id="divAlertWarning" runat="server" class="alert alert-warning alert-dismissible" role="alert" visible="false">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <asp:Label ID="lblAlertWarning" runat="server" Text="" />
+                        </div>
+
+                        <div id="divAlertDanger" runat="server" class="alert alert-danger alert-dismissible" role="alert" visible="false">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <asp:Label ID="lblAlertDanger" runat="server" Text="" />
+                        </div>
+                        <asp:ContentPlaceHolder ID="body" runat="server"></asp:ContentPlaceHolder>
+                    </div>
+                </div>
+                        
+                <%--bootstrap javascript--%>
+                <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+                <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+                <!-- Chosen JavaScript -->
+                <script type="text/javascript" src="<%=ResolveUrl("~/Assets/js/chosen.jquery.min.js")%>"></script>
+                <%--needed for chosen dropdown--%>
+                <script type="text/javascript">
+                    //disable the search if rows are less than n
+                    $(".chosen-select").chosen({ disable_search_threshold: 5 });
+                </script> 
+            </div>
+
+            <%--able to load js into here that is only needed on specific pages--%>
+            <asp:ContentPlaceHolder ID="footerJS" runat="server"></asp:ContentPlaceHolder>
+        </form>
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-70508636-9"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+
+            gtag('config', 'UA-70508636-9');
+        </script>
+    </body>
+</html>

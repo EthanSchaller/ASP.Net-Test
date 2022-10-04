@@ -1,0 +1,67 @@
+﻿body {
+}
+
+#topNavbar {
+    border-bottom: 1px solid rgba(0,0,0,.125);
+}
+
+#contentContainer {
+    /* Firefox */
+    height: -moz-calc(100% - 57px);
+    /* WebKit */
+    height: -webkit-calc(100% - 57px);
+    /* Opera */
+    height: -o-calc(100% - 57px);
+    /* Standard */
+    height: calc(100% - 57px);
+}
+
+#contentRow{
+    height: 100%;
+}
+
+#leftSidebar {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.adminCardHeader {
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #337ab7;
+}
+
+.adminCardBody {
+    padding: 10px 15px;
+    background-color: #f5f5f5;
+    border-top: 1px solid #ddd;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+a {
+    color: #337ab7;
+}
+
+.breadcrumb{
+    background-color: transparent;
+    padding: 0px;
+}
+
+/*adjustments chosen dropdown stop align with bootstrap styles*/
+.chosen-single {
+    background: white !important;
+    height: 34px !important;
+    line-height: 34px !important;
+}
+
+.tableButton {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+/*override thead form-control style stop reduce thead font-size and padding*/ 
+.form-control {
+    font-size: 0.8rem;
+    line-height: 1.3;
+}
